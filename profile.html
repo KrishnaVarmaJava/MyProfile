@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Varma - Freelance Developer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header, .footer {
+            background-color: #6ca3f5;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .header {
+            top: 0;
+        }
+
+        .footer {
+            bottom: 0;
+        }
+
+        .container {
+            margin: 100px auto 100px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1s ease;
+            width: 100%;
+        }
+
+        .slide {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #6ca3f5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p, ul {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Arrows for manual scrolling */
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s;
+            border-radius: 3px;
+            user-select: none;
+            z-index: 1001;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .right-arrow {
+            right: 0;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p, ul {
+                font-size: 1em;
+            }
+
+            .arrow {
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            .container {
+                margin: 80px auto 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            p, ul {
+                font-size: 0.9em;
+            }
+
+            .arrow {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .container {
+                margin: 60px auto 60px;
+            }
+
+            .header, .footer {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <p>Krishna Varma | <a href="mailto:krishnavarma.java@gmail.com" style="color: #fff;">krishnavarma.java@gmail.com</a> | WhatsApp/Phone: +61 493346038 | Sydney, Available Worldwide</p>
+    </div>
+
+    <div class="container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h2>About Me</h2>
+                <p>Hey there! 👋 I'm Krishna, a seasoned freelance developer with over a decade of experience in bringing ideas to life on the web. Whether it's building a fully-fledged web app, integrating complex backend systems, or crafting pixel-perfect designs, I’ve got you covered. I’m passionate about technology and love to dive into new challenges. Let's create something awesome together!</p>
+            </div>
+            <div class="slide">
+                <h2>What I Do</h2>
+                <ul>
+                    <li><strong>Custom Web Development:</strong> Building dynamic websites and web apps from scratch using modern frameworks like React, Angular, and Vue.</li>
+                    <li><strong>API & Backend Development:</strong> Designing and implementing scalable backend systems with Node.js, Python, and Java.</li>
+                    <li><strong>DevOps & Cloud:</strong> Deploying and managing applications on cloud platforms like AWS, Google Cloud, and Heroku.</li>
+                    <li><strong>Full-Stack Projects:</strong> End-to-end development including frontend, backend, database management, and cloud deployment.</li>
+                    <li><strong>Consultation & Support:</strong> Providing expert advice and support for your ongoing or new projects.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Skills & Technologies</h2>
+                <ul>
+                    <li><strong>Languages:</strong> Java, Python, JavaScript, TypeScript</li>
+                    <li><strong>Frameworks:</strong> React, Angular, Vue, Spring Boot, Django</li>
+                    <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</li>
+                    <li><strong>DevOps:</strong> Docker, Kubernetes, Jenkins, Gitlab CI</li>
+                    <li><strong>Cloud:</strong> AWS, Google Cloud, Heroku</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Arrows for manual scroll -->
+        <div class="arrow left-arrow" onclick="moveLeft()">&#10094;</div>
+        <div class="arrow right-arrow" onclick="moveRight()">&#10095;</div>
+    </div>
+
+    <div class="footer">
+        <p>Let's Work Together! | Reach out for collaborations or projects!</p>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide').length;
+
+        function moveRight() {
+            currentSlide = (currentSlide + 1) % slides;
+            updateSlidePosition();
+        }
+
+        function moveLeft() {
+            currentSlide = (currentSlide - 1 + slides) % slides;
+            updateSlidePosition();
+        }
+
+        function updateSlidePosition() {
+            document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto slide every 10 seconds
+        setInterval(moveRight, 10000);
+    </script>
+</body>
+</html>
