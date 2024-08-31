@@ -60,7 +60,7 @@ body {
 .footer {
     background-color: rgb(1 124 198 / 90%);
     padding: 10px 20px;
-    width: 100%;
+    /* width: 100%; */
     bottom: 0;
     text-align: center;
     font-size: 1em;
@@ -176,15 +176,15 @@ ul li {
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
+    .header-content h1 {
+        font-size: 1.5em;
     }
 
     h2 {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
-    p, ul {
+    .header-content p, ul {
         font-size: 0.9em;
     }
 
@@ -194,11 +194,17 @@ ul li {
     }
 
     .container {
-        margin: 60px auto 60px;
+        margin: 5px auto 5px;
     }
 
     .header, .footer {
         padding: 8px 10px;
         font-size: 0.9em;
+        margin: 5px auto;
     }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }    
+
 }
