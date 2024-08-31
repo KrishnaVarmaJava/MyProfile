@@ -15,5 +15,4 @@ function updateSlidePosition() {
     document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
-// Auto slide every 10 seconds
-setInterval(moveRight, 10000);
+setInterval(moveRight, 30000);
