@@ -4,170 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishna Varma - Freelance Developer</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .header, .footer {
-            background-color: #6ca3f5;
-            color: #fff;
-            padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            text-align: center;
-        }
-
-        .header {
-            top: 0;
-        }
-
-        .footer {
-            bottom: 0;
-        }
-
-        .container {
-            margin: 100px auto 100px;
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 1s ease;
-            width: 100%;
-        }
-
-        .slide {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            flex-shrink: 0;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #6ca3f5;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        p, ul {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Arrows for manual scrolling */
-        .arrow {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: auto;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-            transition: 0.3s;
-            border-radius: 3px;
-            user-select: none;
-            z-index: 1001;
-        }
-
-        .arrow:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .left-arrow {
-            left: 0;
-        }
-
-        .right-arrow {
-            right: 0;
-        }
-
-        /* Media queries for responsive design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            p, ul {
-                font-size: 1em;
-            }
-
-            .arrow {
-                font-size: 18px;
-                padding: 12px;
-            }
-
-            .container {
-                margin: 80px auto 80px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.3em;
-            }
-
-            p, ul {
-                font-size: 0.9em;
-            }
-
-            .arrow {
-                font-size: 16px;
-                padding: 10px;
-            }
-
-            .container {
-                margin: 60px auto 60px;
-            }
-
-            .header, .footer {
-                padding: 8px 10px;
-                font-size: 0.9em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="header">
-        <p>Krishna Varma | <a href="mailto:krishnavarma.java@gmail.com" style="color: #fff;">krishnavarma.java@gmail.com</a> | WhatsApp/Phone: +61 493346038 | Sydney, Available Worldwide</p>
+        <img src="assets/profile_image.jpg" alt="Profile Image" class="profile-img">
+        <div class="header-content">
+            <h1>V P V R Krishna Varma</h1>
+            <p>Freelance Developer</p>
+            <p><a href="mailto:krishnavarma.java@gmail.com">krishnavarma.java@gmail.com</a></p>
+            <p>WhatsApp/Phone: +61 493346038 | Sydney, Available Worldwide</p>
+        </div>
     </div>
-
+        
     <div class="container">
         <div class="slider" id="slider">
             <div class="slide">
@@ -204,27 +54,6 @@
     <div class="footer">
         <p>Let's Work Together! | Reach out for collaborations or projects!</p>
     </div>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide').length;
-
-        function moveRight() {
-            currentSlide = (currentSlide + 1) % slides;
-            updateSlidePosition();
-        }
-
-        function moveLeft() {
-            currentSlide = (currentSlide - 1 + slides) % slides;
-            updateSlidePosition();
-        }
-
-        function updateSlidePosition() {
-            document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        // Auto slide every 10 seconds
-        setInterval(moveRight, 10000);
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
